@@ -1,0 +1,23 @@
+package Day2;
+
+
+public class Matrix1 {
+
+	public static void main(String[] args) {
+		int m1[][]= {{1,2},{3,4}};
+		int m2[][]= {{3,4},{2,1}};
+		int sum[][]=new int[2][2];
+		int len=m1.length;
+		for(int i=0;i<len;i++) {
+			for(int j=0;j<len;j++) {
+				sum[i][j]=m1[i][j]+m2[i][j];
+				System.out.print(sum[i][j]+ "\t");
+			}
+		}
+		
+
+		
+
+	}
+
+}
