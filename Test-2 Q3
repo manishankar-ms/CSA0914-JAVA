@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class R192224196 {
+
+    public static long factorial(int number) {
+
+        if (number == 0 || number == 1) {
+
+            return 1;
+
+        } else {
+
+            return number * factorial(number - 1);
+
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to calculate its factorial: ");
+
+        int number = scanner.nextInt();
+
+        if (number < 0) {
+
+            System.out.println("Factorial is not defined for negative numbers.");
+
+            long result = factorial(number);
+
+            System.out.println("The factorial of " + number + " is: " + result);
+
+        }
+
+        scanner.close();
+
+    }
+
+}
