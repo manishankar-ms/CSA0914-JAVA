@@ -1,0 +1,59 @@
+import java.util.Scanner;
+
+public class R192224196 {
+
+    public static boolean isArmstrongNumber(int number) {
+
+        int originalNumber = number;
+
+        int numOfDigits = 0;
+
+        while (originalNumber > 0) {
+
+            originalNumber /= 10;
+
+            numOfDigits++;
+
+        }
+
+        originalNumber = number;
+
+        int sum = 0;
+
+        while (originalNumber > 0) {
+
+            int digit = originalNumber % 10;
+
+            sum += Math.pow(digit, numOfDigits);
+
+            originalNumber /= 10;
+
+        }
+
+        return sum == number;
+
+    }
+
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a number to check if it is an Armstrong number: ");
+
+        int number = scanner.nextInt();
+
+        if (isArmstrongNumber(number)) {
+
+            System.out.println(number + " is an Armstrong number.");
+
+        } else {
+
+            System.out.println(number + " is not an Armstrong number.");
+
+        }
+
+        scanner.close();
+
+    }
+
+}
