@@ -1,0 +1,44 @@
+
+abstract class Statistics {
+   
+    abstract int total();
+    abstract double average();
+
+    int mean() {
+        return total() / 5;
+    }
+
+    int mode() {
+        return 10; 
+    }
+
+    double median() {
+        return 20.5;
+    }
+}
+
+class DataAnalyzer extends Statistics {
+    private int[] data = {10, 20, 30, 40, 50};
+
+    int total() {
+        int sum = 0;
+        for (int num : data) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    double average() {
+        return (double) total() / data.length;
+    }
+
+    public static void main(String[] args) {
+        DataAnalyzer analyzer = new DataAnalyzer();
+
+        System.out.println("Total: " + analyzer.total());
+        System.out.println("Average: " + analyzer.average());
+        System.out.println("Mean: " + analyzer.mean());
+        System.out.println("Mode: " + analyzer.mode());
+        System.out.println("Median: " + analyzer.median());
+    }
+}
