@@ -1,0 +1,22 @@
+public class MyClass<T extends Number> {
+    private T value;
+
+    public MyClass(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+      
+        Pair<Integer, String> intStrPair = new Pair<>(10, "Hello");
+        System.out.println("Key: " + intStrPair.getKey() + ", Value: " + intStrPair.getValue());
+
+  
+        Pair<Double, Boolean> doubleBoolPair = new Pair<>(3.14, true);
+        System.out.println("Key: " + doubleBoolPair.getKey() + ", Value: " + doubleBoolPair.getValue());
+    }
+}
