@@ -1,0 +1,25 @@
+
+public class Container<T> {
+    private T value;
+
+    public Container(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public void setValue(T value) {
+        this.value = value;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Container<Integer> intContainer = new Container<>(10);
+        System.out.println("Integer value: " + intContainer.getValue());
+
+        Container<String> strContainer = new Container<>("Hello");
+        System.out.println("String value: " + strContainer.getValue());
+    }
+}
