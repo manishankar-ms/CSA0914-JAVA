@@ -1,0 +1,49 @@
+public class DataTypeConversion {
+    public static void main(String[] args) {
+      
+        byte byteValue = 10;
+        short shortValue = byteValue; 
+        int intValue = shortValue; 
+        long longValue = intValue; 
+        float floatValue = longValue; 
+        double doubleValue = floatValue; 
+
+        System.out.println("Implicit Conversion (Widening):");
+        System.out.println("Byte to Short: " + shortValue);
+        System.out.println("Short to Int: " + intValue);
+        System.out.println("Int to Long: " + longValue);
+        System.out.println("Long to Float: " + floatValue);
+        System.out.println("Float to Double: " + doubleValue);
+
+        
+        double doubleValue2 = 10.5;
+        float floatValue2 = (float) doubleValue2; 
+        long longValue2 = (long) floatValue2; 
+        int intValue2 = (int) longValue2; 
+        short shortValue2 = (short) intValue2; 
+        byte byteValue2 = (byte) shortValue2; 
+        System.out.println("\nExplicit Conversion (Narrowing):");
+        System.out.println("Double to Float: " + floatValue2);
+        System.out.println("Float to Long: " + longValue2);
+        System.out.println("Long to Int: " + intValue2);
+        System.out.println("Int to Short: " + shortValue2);
+        System.out.println("Short to Byte: " + byteValue2);
+
+        
+        byte byteValue3 = 127; 
+        byteValue3++; 
+        System.out.println("\nOverflow Scenario (Byte): " + byteValue3);
+
+        short shortValue3 = 32767;
+        shortValue3++;
+        System.out.println("Overflow Scenario (Short): " + shortValue3);
+
+        byte byteValue4 = -128; 
+        byteValue4--; 
+        System.out.println("Underflow Scenario (Byte): " + byteValue4);
+
+        short shortValue4 = -32768; 
+        shortValue4--;
+        System.out.println("Underflow Scenario (Short): " + shortValue4);
+    }
+}
