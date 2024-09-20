@@ -1,0 +1,22 @@
+public class PascalTriangle {
+    public static void main(String[] args) {
+        int numRows = 5; // number of rows in the triangle
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j <= i; j++) {
+                System.out.print(binomialCoeff(i, j) + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static int binomialCoeff(int n, int k) {
+        int res = 1;
+        if (k > n - k)
+            k = n - k;
+        for (int i = 0; i < k; ++i) {
+            res = res * (n - i);
+            res = res / (i + 1);
+        }
+        return res;
+    }
+}
