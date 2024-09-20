@@ -1,0 +1,12 @@
+public class RectanglePattern {
+    public static void main(String[] args) {
+        int rows = 4; // number of rows in the rectangle
+        int cols = 5; // number of columns in the rectangle
+        for (int i = 1; i <= rows; i++) {
+            for (int j = 1; j <= cols; j++) {
+                System.out.print("1 ");
+            }
+            System.out.println();
+        }
+    }
+}
