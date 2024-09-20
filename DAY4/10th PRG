@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class SetOperations {
+    public static void main(String[] args) {
+        Set<Integer> set = new HashSet<>();
+        set.add(5);
+        set.add(2);
+        set.add(8);
+        set.add(1);
+        set.add(4);
+
+        int k = 3;
+        int kthSmallest = findKthSmallest(set, k);
+        System.out.println("The " + k + "th smallest element is: " + kthSmallest);
+    }
+
+    public static int findKthSmallest(Set<Integer> set, int k) {
+        // Convert the set to a list
+        List<Integer> list = new ArrayList<>(set);
+
+        // Sort the list
+        Collections.sort(list);
+
+        // Find the k-th element
+        if (k > 0 && k <= list.size()) {
+            return list.get(k - 1);
+        } else {
+            throw new IndexOutOfBoundsException("k is out of bounds");
+        }
+    }
+}
