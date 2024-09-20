@@ -1,0 +1,19 @@
+public class RotateList {
+    public static <T> List<T> rotateRight(List<T> list, int k) {
+        int size = list.size();
+        k = k % size; 
+        List<T> firstPart = list.subList(size - k, size);
+        List<T> secondPart = list.subList(0, size - k);
+        List<T> rotatedList = new ArrayList<>();
+        rotatedList.addAll(firstPart);
+        rotatedList.addAll(secondPart);
+        return rotatedList;
+    }
+
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("apple", "banana", "orange", "grape", "kiwi");
+        int k = 2;
+        List<String> rotatedList = rotateRight(list, k);
+        System.out.println(rotatedList);
+    }
+}
