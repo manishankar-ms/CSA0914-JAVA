@@ -1,0 +1,62 @@
+public class ThreadWaitingAndSleeping {
+    public static void main(String[] args) {
+        Thread thread1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    System.out.println("Thread 1 is waiting...");
+                    Thread.sleep(5000); // Wait for 5 seconds
+                    System.out.println("Thread 1 is done waiting.");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    System.out.println("Thread 2 is sleeping...");
+                    Thread.sleep(8000); // Sleep for 8 seconds
+                    System.out.println("Thread 2 is done sleeping.");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        long thread1WaitingTime = getWaitingTime(thread1);
+        long thread2WaitingTime = getWaitingTime(thread2);
+
+        System.out.println("Thread 1 waiting time: " + thread1WaitingTime + " ms");
+        System.out.println("Thread 2 waiting time: " + thread2WaitingTime + " ms");
+
+        if (thread1WaitingTime > thread2WaitingTime) {
+            System.out.println("Thread 1 has longer waiting time.");
+        } else if (thread2WaitingTime > thread1WaitingTime) {
+            System.out.println("Thread 2 has longer waiting time.");
+        } else {
+            System.out.println("Both threads have the same waiting time.");
+        }
+    }
+
+    private static long getWaitingTime(Thread thread) {
+        long startTime = System.currentTimeMillis();
+        while (thread.getState() != Thread.State.WAITING) {
+            // Wait for the thread to enter the WAITING state
+        }
+        long endTime = System.currentTimeMillis();
+        return endTime - startTime;
+    }
+}
