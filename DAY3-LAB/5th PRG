@@ -1,0 +1,28 @@
+public class NegativeValueException extends Exception {
+    public NegativeValueException(String message) {
+        super(message);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            int userInput = getUserInput();
+            validateUserInput(userInput);
+        } catch (NegativeValueException e) {
+            System.out.println("Caught a NegativeValueException: " + e.getMessage());
+        }
+    }
+
+    public static int getUserInput() {
+        // Simulate user input
+        return -10; // Replace with actual user input
+    }
+
+    public static void validateUserInput(int value) throws NegativeValueException {
+        if (value < 0) {
+            throw new NegativeValueException("Negative values are not allowed");
+        }
+        System.out.println("Valid input: " + value);
+    }
+}
