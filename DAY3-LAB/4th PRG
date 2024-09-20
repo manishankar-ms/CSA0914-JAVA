@@ -1,0 +1,74 @@
+public class IllegalArgumentExceptionExample {
+    public static void main(String[] args) {
+       
+        try {
+            String nullString = null;
+            validateString(nullString); // Attempt to pass null as an argument
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught an IllegalArgumentException: " + e.getMessage());
+        }
+
+        
+        try {
+            String emptyString = "";
+            validateString(emptyString); // Attempt to pass an empty string as an argument
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught an IllegalArgumentException: " + e.getMessage());
+        }
+
+       
+        try {
+            int negativeValue = -10;
+            validateNonNegativeValue(negativeValue); // Attempt to pass a negative value as an argument
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught an IllegalArgumentException: " + e.getMessage());
+        }
+
+        try {
+            Enum invalidEnum = null;
+            validateEnum(invalidEnum); // Attempt to pass an invalid enum constant as an argument
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught an IllegalArgumentException: " + e.getMessage());
+        }
+
+        
+        try {
+            int invalidRange = 150;
+            validateRange(invalidRange); // Attempt to set an invalid range for a method parameter
+        } catch (IllegalArgumentException e) {
+            System.out.println("Caught an IllegalArgumentException: " + e.getMessage());
+        }
+    }
+
+
+    public static void validateString(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("String cannot be null or empty");
+        }
+    }
+
+   
+    public static void validateNonNegativeValue(int value) {
+        if (value < 0) {
+            throw new IllegalArgumentException("Value cannot be negative");
+        }
+    }
+
+   
+    public enum Color {
+        RED, GREEN, BLUE
+    }
+
+    public static void validateEnum(Enum enumValue) {
+        if (enumValue == null) {
+            throw new IllegalArgumentException("Enum constant cannot be null");
+        }
+    }
+
+  
+    public static void validateRange(int value) {
+        if (value < 0 || value > 100) {
+            throw new IllegalArgumentException("Value must be between 0 and 100");
+        }
+    }
+}
