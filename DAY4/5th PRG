@@ -1,0 +1,41 @@
+public abstract class StatisticalCalculator {
+    protected List<Double> numbers;
+
+    public StatisticalCalculator(List<Double> numbers) {
+        this.numbers = numbers;
+    }
+
+    public abstract double total();
+
+    public abstract double average();
+
+    public double mean() {
+        return average();
+    }
+
+    public double mode() {
+        Map<Double, Integer> frequencyMap = new HashMap<>();
+        for (double num : numbers) {
+            frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+        }
+        double mode = null;
+        int maxFrequency = 0;
+        for (Map.Entry<Double, Integer> entry : frequencyMap.entrySet()) {
+            if (entry.getValue() > maxFrequency) {
+                maxFrequency = entry.getValue();
+                mode = entry.getKey();
+            }
+        }
+        return mode;
+    }
+
+    public double median() {
+        Collections.sort(numbers);
+        int size = numbers.size();
+        if (size % 2 == 0) {
+            return (numbers.get(size / 2 - 1) + numbers.get(size / 2)) / 2;
+        } else {
+            return numbers.get(size / 2);
+        }
+    }
+}
