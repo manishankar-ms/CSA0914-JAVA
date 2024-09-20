@@ -1,0 +1,68 @@
+public interface Summable {
+    double sum(double[] numbers);
+}
+
+public interface Averagable {
+    double avg(double[] numbers);
+}
+
+public interface PercentageCalculable {
+    double percentage(double total, double part);
+}
+
+public interface Tree {
+    String fruits();
+}
+
+public class Calculator implements Summable, Averagable, PercentageCalculable {
+    @Override
+    public double sum(double[] numbers) {
+        double sum = 0;
+        for (double num : numbers) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    @Override
+    public double avg(double[] numbers) {
+        return sum(numbers) / numbers.length;
+    }
+
+    @Override
+    public double percentage(double total, double part) {
+        return (part / total) * 100;
+    }
+
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        double[] numbers = {1, 2, 3, 4, 5};
+        System.out.println("Sum: " + calculator.sum(numbers));
+        System.out.println("Average: " + calculator.avg(numbers));
+        System.out.println("Percentage: " + calculator.percentage(100, 25));
+    }
+}
+
+public class Branch1 implements Tree {
+    @Override
+    public String fruits() {
+        return "Apples, Bananas";
+    }
+}
+
+public class Branch2 implements Tree {
+    @Override
+    public String fruits() {
+        return "Oranges, Grapes";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Branch1 branch1 = new Branch1();
+        Branch2 branch2 = new Branch2();
+
+        System.out.println("Fruits on Branch1: " + branch1.fruits());
+        System.out.println("Fruits on Branch2: " + branch2.fruits());
+    }
+}
