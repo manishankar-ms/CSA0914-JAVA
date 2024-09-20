@@ -1,0 +1,34 @@
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetOperations {
+    public static void main(String[] args) {
+        // Create two sets
+        Set<String> setA = new HashSet<>();
+        setA.add("Apple");
+        setA.add("Banana");
+        setA.add("Cherry");
+        setA.add("Date");
+
+        Set<String> setB = new HashSet<>();
+        setB.add("Banana");
+        setB.add("Cherry");
+        setB.add("Elderberry");
+        setB.add("Fig");
+
+        // a) Find Union of 2 sets
+        Set<String> union = new HashSet<>(setA);
+        union.addAll(setB);
+        System.out.println("Union: " + union);
+
+        // b) Find Intersection of 2 sets
+        Set<String> intersection = new HashSet<>(setA);
+        intersection.retainAll(setB);
+        System.out.println("Intersection: " + intersection);
+
+        // c) Find Difference of 2 sets
+        Set<String> difference = new HashSet<>(setA);
+        difference.removeAll(setB);
+        System.out.println("Difference: " + difference);
+    }
+}
