@@ -1,0 +1,36 @@
+public class NumberFormatExceptionExample {
+    public static void main(String[] args) {
+       
+        try {
+            String nonNumericString = "abc";
+            int num = Integer.parseInt(nonNumericString); // Attempt to parse a non-numeric string
+        } catch (NumberFormatException e) {
+            System.out.println("Caught a NumberFormatException: " + e.getMessage());
+        }
+
+       
+        try {
+            String userInput = "123abc";
+            int userInputNum = Integer.parseInt(userInput); // Attempt to parse user input without validation
+        } catch (NumberFormatException e) {
+            System.out.println("Caught a NumberFormatException: " + e.getMessage());
+        }
+
+     
+        try {
+            String decimalString = "123,456.789";
+            NumberFormat format = NumberFormat.getInstance();
+            Number number = format.parse(decimalString); // Attempt to parse a decimal string with formatting issues
+        } catch (ParseException e) {
+            System.out.println("Caught a ParseException: " + e.getMessage());
+        }
+
+        try {
+            String localizedDecimalString = "123.456,789";
+            NumberFormat format = NumberFormat.getInstance(Locale.US);
+            Number number = format.parse(localizedDecimalString); // Attempt to parse a localized decimal string with incorrect separators
+        } catch (ParseException e) {
+            System.out.println("Caught a ParseException: " + e.getMessage());
+        }
+    }
+}
