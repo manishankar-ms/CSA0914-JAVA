@@ -1,0 +1,31 @@
+
+public class Shape {
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+public class Circle extends Shape {
+  
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+
+public class Rectangle extends Shape {
+ 
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Circle myCircle = new Circle();
+        Rectangle myRectangle = new Rectangle();
+        myCircle.draw(); // Output: "Drawing a circle"
+        myRectangle.draw(); // Output: "Drawing a rectangle"
+    }
+}
