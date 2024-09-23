@@ -1,0 +1,24 @@
+public class Employee {
+    private String privateField = "Private field";
+    protected String protectedField = "Protected field";
+    public String publicField = "Public field";
+}
+
+public class Manager extends Employee {
+    public void accessFields() {
+      
+  System.out.println(privateField); 
+      
+        System.out.println(protectedField); 
+
+       
+        System.out.println(publicField); 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Manager myManager = new Manager();
+        myManager.accessFields();
+    }
+}
