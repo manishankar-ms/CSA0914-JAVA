@@ -1,0 +1,52 @@
+
+public class Vehicle {
+    private int speed;
+
+    public Vehicle(int speed) {
+        this.speed = speed;
+    }
+
+    public void displaySpeed() {
+        System.out.println("Speed: " + speed);
+    }
+}
+
+
+public class Car extends Vehicle {
+    private String fuelType;
+
+    public Car(int speed, String fuelType) {
+        super(speed); // Call the base class constructor
+        this.fuelType = fuelType;
+    }
+
+    public void displayFuelType() {
+        System.out.println("Fuel Type: " + fuelType);
+    }
+}
+
+public class ElectricCar extends Car {
+    private int batteryCapacity;
+
+    public ElectricCar(int speed, String fuelType, int batteryCapacity) {
+        super(speed, fuelType); // Call the base class constructor
+        this.batteryCapacity = batteryCapacity;
+    }
+
+    public void displayBatteryCapacity() {
+        System.out.println("Battery Capacity: " + batteryCapacity);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ElectricCar myElectricCar = new ElectricCar(120, "Electric", 60);
+        myElectricCar.displaySpeed();
+        myElectricCar.displayFuelType();
+        myElectricCar.displayBatteryCapacity();
+        // Output:
+        // Speed: 120
+        // Fuel Type: Electric
+        // Battery Capacity: 60
+    }
+}
